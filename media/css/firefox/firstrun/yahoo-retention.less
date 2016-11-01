@@ -1,0 +1,227 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+@import "../../sandstone/lib.less";
+
+html,
+body {
+    background: @mozIDBlue;
+    height: 100%;
+}
+
+#tabzilla:before {
+    background: @mozIDBlue;
+}
+
+#outer-wrapper {
+    .aurora-bars();
+    min-height: 100%;
+    overflow: hidden;
+
+    h1, h2 {
+        color: #fff;
+        text-shadow: none;
+    }
+}
+
+main {
+    margin-top: 20px;
+    text-align: center;
+
+    h1 {
+        .font-size(48px);
+        margin-bottom: @baseLine;
+    }
+
+    p {
+        .font-size(22px);
+        color: #fff;
+        margin: @baseLine auto;
+        max-width: 30em;
+    }
+
+    .cta {
+        margin-bottom: @baseLine * 2;
+        min-height: 65px;
+    }
+
+    .button.dark {
+        .background-size(38px 38px);
+        .font-size(25px);
+        background: #00539F url('/media/img/firefox/firstrun/yahoo-retention/icon-magnifier.svg') top 10px center no-repeat;
+        margin: 0;
+        overflow: hidden;
+        text-indent: 200%;
+        transition: background-color .1s ease-in-out;
+        white-space: nowrap;
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    @media only screen and (max-width: @breakDesktop) {
+        h1 {
+            .font-size(44px);
+        }
+    }
+
+    @media only screen and (max-width: @breakTablet) {
+        h1 {
+            .font-size(40px);
+        }
+
+        p {
+            .font-size(20px);
+        }
+
+        .button.dark {
+            .font-size(22px);
+        }
+    }
+
+    @media only screen and (max-width: @breakMobileLandscape) {
+        h1 {
+            .font-size(36px);
+        }
+
+        p {
+            .font-size(18px);
+        }
+
+        .cta {
+            display: none;
+        }
+    }
+}
+
+.img-stage {
+    height: 362px;
+    position: relative;
+    z-index: 0;
+
+    img {
+        border: 1px solid #979797;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+        height: auto;
+        position: absolute;
+        top: 80px;
+        width: 321px;
+
+        &:nth-child(1) {
+            left: 0;
+            transform: rotate(-10deg);
+        }
+
+        &:nth-child(2) {
+            height: auto;
+            left: 50%;
+            margin-left: -240px;
+            top: 0;
+            width: 480px;
+            z-index: 1;
+        }
+
+        &:nth-child(3) {
+            right: 0;
+            transform: rotate(10deg);
+        }
+    }
+
+    @media only screen and (max-width: @breakDesktop) {
+        img {
+            top: 50px;
+
+            &:nth-child(1),
+            &:nth-child(3) {
+                width: 260px;
+            }
+
+            &:nth-child(2) {
+                margin-left: -160px;
+                width: 320px;
+            }
+        }
+    }
+
+    @media only screen and (max-width: @breakTablet) {
+        height: auto;
+        margin-top: @baseLine * 2;
+
+        img {
+            display: block;
+            position: static;
+
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3) {
+                margin: 0 auto;
+                width: 260px;
+            }
+        }
+    }
+}
+
+footer[role="contentinfo"] {
+    margin: (@baseLine * 2) auto;
+    width: @widthDesktop - (@gridGutterWidth * 2);
+
+    ul {
+        display: inline-block;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            .font-size(13px);
+            color: #bee1f5;
+            display: inline;
+            margin: 0;
+            padding: 0;
+
+            &:after {
+                content: '•';
+                margin: 0 10px;
+            }
+
+            &:last-child:after {
+                content: '';
+                margin: 0;
+            }
+        }
+    }
+
+    a:link,
+    a:visited {
+        .transition(color .1s ease-in-out);
+        color: #bee1f5;
+    }
+
+    a:hover,
+    a:focus,
+    a:active {
+        color: #fff;
+    }
+
+    .logo {
+        .at2x('/media/img/sandstone/footer-mozilla-white.png', 93px, 24px);
+        .image-replaced();
+        display: inline-block;
+        height: 24px;
+        margin-right: @gridGutterWidth;
+        width: 93px;
+    }
+
+    @media only screen and (max-width: @breakDesktop) {
+        width: @widthTablet - (@gridGutterWidth * 2);
+    }
+
+    @media only screen and (max-width: @breakTablet) {
+        width: @widthMobileLandscape - @gridGutterWidth;
+    }
+
+    @media only screen and (max-width: @breakMobileLandscape) {
+        width: @widthMobile - @gridGutterWidth;
+    }
+}

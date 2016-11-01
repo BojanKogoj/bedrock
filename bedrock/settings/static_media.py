@@ -379,6 +379,12 @@ PIPELINE_CSS = {
         ),
         'output_filename': 'css/firefox_firstrun_learnmore_yahoo_search-bundle.css',
     },
+    'firefox_firstrun_yahoo_retention': {
+        'source_filenames': (
+            'css/firefox/firstrun/yahoo-retention.less',
+        ),
+        'output_filename': 'css/firefox_firstrun_yahoo_retention-bundle.css',
+    },
     'firefox_firstrun_ravioli': {
         'source_filenames': (
             'css/firefox/firstrun/ravioli.less',
@@ -1436,6 +1442,13 @@ PIPELINE_JS = {
             'js/firefox/firstrun/learnmore/yahoo-search.js',
         ),
         'output_filename': 'js/firefox_firstrun_learnmore_yahoo_search-bundle.js',
+    },
+    'firefox_firstrun_yahoo_retention': {
+        'source_filenames': (
+            'js/base/uitour-lib.js',
+            'js/firefox/firstrun/yahoo-retention.js',
+        ),
+        'output_filename': 'js/firefox_firstrun_yahoo_retention-bundle.js',
     },
     'firefox_win10_welcome': {
         'source_filenames': (
