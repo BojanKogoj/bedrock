@@ -1,0 +1,90 @@
+{# This Source Code Form is subject to the terms of the Mozilla Public
+ # License, v. 2.0. If a copy of the MPL was not distributed with this
+ # file, You can obtain one at http://mozilla.org/MPL/2.0/. -#}
+
+{% extends "base-pebbles.html" %}
+
+{% block page_title %}
+  {{ _('Test your code to make sure it works everywhere.') }}
+{% endblock %}
+
+{% block page_desc %}
+  {{ _('Run manual, automated, and parallel testing on every OS and browser combination.') }}
+{% endblock %}
+
+{% block body_id %}browser-test{% endblock %}
+{% block body_class %}{% endblock %}
+
+{% block page_css %}
+  {% stylesheet 'browser-test' %}
+{% endblock %}
+
+{% block site_header %}
+  <header class="section masthead" id="masthead">
+    <div class="content">
+    {% block tabzilla_tab %}
+      <div id="tabzilla">
+        <a href="{{ url('mozorg.home') }}" data-link-type="nav" data-link-name="tabzilla">Mozilla</a>
+      </div>
+    {% endblock %}
+    </div>
+  </header>
+{% endblock %}
+
+{% block content %}
+<main role="main">
+  <header>
+    <div class="content">
+      <h1>{{ self.page_title() }}</h1>
+      <h2>{{ self.page_desc() }}</h2>
+      {# TODO - replace URL with mozilla signup promotion link. #}
+      <a href="https://saucelabs.com/" rel="external" class="button">{{ _('Get started') }}</a>
+      <small>{{ _('You will be redirected to our partner Sauce Labs.') }}</small>
+    </div>
+  </header>
+  <div class="content">
+    <section class="benefits">
+        <h2>{{ _('Together with Sauce Labs, we’ve put together an essential cross-browser testing tutorial:') }}</h2>
+
+        <ul class="prose">
+          <li>{{ _('Get acquainted with cross-browser testing best practices') }}</li>
+          <li>{{ _('Learn how to test manually') }}</li>
+          <li>{{ _('Start automating browser tests in your local development environment') }}</li>
+          <li>{{ _('Integrate your automation with Sauce Labs to run your tests across multiple browsers') }}</li>
+          <li>{{ _('Run automated tests when you commit your code') }}</li>
+        </ul>
+
+        <img class="poweder-by" src="{{ static('img/mozorg/browsertest/saucelabs-attribution.png') }}" alt="{{ _('Powered by Sauce Labs') }}">
+    </section>
+    <section class="callout">
+      <h2>{{ _('Free Sauce Labs trial') }}</h2>
+      <p>
+      {% trans %}
+        Start your exclusive 30-day free trial with unlimited manual testing and 90 hours
+        of automated testing, with no commitment.
+      {% endtrans %}
+
+      {% trans %}
+        Brought to you by Mozilla, because we think everyone should have a great experience
+        on the web regardless of browser, OS or device.
+      {% endtrans %}
+      </p>
+
+      <p>{{ _('<strong>Bonus</strong> - 25% discount on Selenium training') }}</p>
+    </section>
+  </div>
+  <aside id="newsletter-subscribe">
+    <div class="content">
+      {{ email_newsletter_form(newsletters='app-dev',
+         include_language=False,
+         title=_('Learn the best of web development'),
+         subtitle=_('Sign up for our newsletter.'), button_class='light')
+      }}
+    </div>
+  </aside>
+</main>
+{% endblock %}
+
+{% block email_form %}{% endblock %}
+
+{% block js %}{% endblock %}
